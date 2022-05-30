@@ -44,11 +44,10 @@ const newCronJob = (channel, task_ts) => {
       // postpone users in a huddle
       for (const id of devs) {
         const res = await isInHuddleStatus(id);
-        // if (res) db.push(`/state/tasks/${ task_ts }/postponed[]`, { id, expired: Date.now() + 1000*60*50 }, false)
         if (res)
           db.push(
             `/state/tasks/${task_ts}/postponed[]`,
-            { id, expired: Date.now() + 1000 * 20 },
+            { id, expired: Date.now() + 1000 * 60 * 50 },
             true
           );
       }

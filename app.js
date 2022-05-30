@@ -40,7 +40,7 @@ slackEvents.on("reaction_added", async (event) => {
 
   db.push(
     `/state/tasks/${event.item.ts}/postponed[]`,
-    { id: event.user, expired: Date.now() + 1000 * 20 },
+    { id: event.user, expired: Date.now() + 1000 * 60 * 60 },
     true
   );
 });
